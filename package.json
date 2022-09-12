@@ -16,10 +16,13 @@
     "email": "kc97ble@gmail.com"
   },
   "scripts": {
+    "build": "parcel build src/index.html",
     "clean": "rimraf dist",
+    "dev": "parcel src/index.html",
     "sort-package-json": "sort-package-json"
   },
   "devDependencies": {
+    "parcel": "^2.7.0",
     "rimraf": "^3.0.2",
     "sort-package-json": "^1.57.0",
     "typescript": "^4.8.3"
