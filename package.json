@@ -1,0 +1,21 @@
+{
+  "name": "sed-command-builder-2230",
+  "version": "1.0.0",
+  "description": "sed command builder",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kc97ble/sed-command-builder-2230.git"
+  },
+  "author": {
+    "name": "Kien Nguyen",
+    "email": "kc97ble@gmail.com"
+  },
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/kc97ble/sed-command-builder-2230/issues"
+  },
+  "homepage": "https://github.com/kc97ble/sed-command-builder-2230#readme"
+}
