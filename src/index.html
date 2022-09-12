@@ -4,11 +4,248 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>sed-command-builder</title>
+    <title>sed command builder</title>
     <link href="./index.css" rel="stylesheet" />
     <script type="module" src="index.ts"></script>
   </head>
   <body>
-    <h1 class="mt-4 mx-4 text-3xl font-bold underline">Hello world!</h1>
+    <div
+      class="container border shadow rounded p-4 mx-auto my-4 bg-white"
+      style="max-width: 800px"
+    >
+      <h1 class="font-bold">sed command builder</h1>
+      <p class="my-2">
+        sed is a stream editor. In the simplest examples, it takes a text file
+        and a command, then perform the command for each line. The basic
+        commands are prepend, append, change, replace, delete. For example, to
+        delete lines from 2 to 4 of <code>input.txt</code>, we can run
+        <code>sed -e '2,4d' &lt; input.txt &gt; output.txt</code>.
+      </p>
+      <p class="my-2">This website helps you build simple sed commands.</p>
+      <form>
+        <fieldset class="rounded border p-2">
+          <legend>Condition</legend>
+          <div class="flex items-start my-2">
+            <input
+              type="radio"
+              name="condition"
+              value="all"
+              id="condition-2157"
+            />
+            <div class="ml-2">
+              <label for="condition-2157">For all lines</label>
+            </div>
+          </div>
+          <div class="flex items-start my-2">
+            <input
+              class="mt-1"
+              type="radio"
+              name="condition"
+              value="single"
+              id="condition-2158"
+            />
+            <div class="ml-2">
+              <label for="condition-2158">For one line</label>
+              <input
+                class="border pl-1"
+                type="number"
+                name="condition-single"
+                id="condition-single-2210"
+                title="Line number"
+              />
+            </div>
+          </div>
+          <div class="flex items-start my-2">
+            <input
+              class="mt-1"
+              type="radio"
+              name="condition"
+              value="range"
+              id="condition-2159"
+            />
+            <div class="ml-2">
+              <label for="condition-2159">For a range</label>
+              <ul class="list-disc ml-4">
+                <li>
+                  <label for="condition-range-from-2217">From:</label>
+                  <input
+                    class="border pl-1"
+                    type="number"
+                    name="condition-range-from"
+                    id="condition-range-from-2217"
+                    title="Starting line number (inclusive)"
+                  />
+                </li>
+                <li>
+                  <label for="condition-range-to-2218">To:</label>
+                  <input
+                    class="border pl-1"
+                    type="number"
+                    name="condition-range-to"
+                    id="condition-range-to-2218"
+                    title="Ending line number (inclusive)"
+                  />
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="flex items-start my-2">
+            <input
+              class="mt-1"
+              type="radio"
+              name="condition"
+              value="regex"
+              id="condition-2200"
+            />
+            <div class="ml-2">
+              <label for="condition-2200"
+                >For lines that matches a pattern</label
+              >
+              <ul class="list-disc ml-4">
+                <li>
+                  <label for="condition-regex-2220">Pattern (regex):</label>
+                  <input
+                    class="border pl-1"
+                    type="text"
+                    name="condition-regex"
+                    id="condition-regex-2220"
+                  />
+                </li>
+              </ul>
+            </div>
+          </div>
+        </fieldset>
+        <fieldset class="rounded border p-2">
+          <legend>Command</legend>
+          <div class="flex items-start my-2">
+            <input
+              class="mt-1"
+              type="radio"
+              name="command"
+              value="none"
+              id="command-2222"
+            />
+            <div class="ml-2">
+              <label for="command-2222">Do nothing</label>
+            </div>
+          </div>
+          <div class="flex items-start my-2">
+            <input
+              class="mt-1"
+              type="radio"
+              name="command"
+              value="delete"
+              id="command-2231"
+            />
+            <div class="ml-2">
+              <label for="command-2231">Delete</label>
+            </div>
+          </div>
+          <div class="flex items-start my-2">
+            <input
+              class="mt-1"
+              type="radio"
+              name="command"
+              value="change"
+              id="command-1116"
+            />
+            <div class="ml-2">
+              <label for="command-1116">Change to</label>
+              <input
+                class="border pl-1"
+                type="text"
+                name="command-change"
+                id="command-change-2229"
+              />
+            </div>
+          </div>
+          <div class="flex items-start my-2">
+            <input
+              class="mt-1"
+              type="radio"
+              name="command"
+              value="prepend"
+              id="command-2249"
+            />
+            <div class="ml-2">
+              <label for="command-2249">Prepend</label>
+              <input
+                class="border pl-1"
+                type="text"
+                name="command-prepend"
+                id="command-prepend-2229"
+              />
+            </div>
+          </div>
+          <div class="flex items-start my-2">
+            <input
+              class="mt-1"
+              type="radio"
+              name="command"
+              value="append"
+              id="command-2251"
+            />
+            <div class="ml-2">
+              <label for="command-2251">Append</label>
+              <input
+                class="border pl-1"
+                type="text"
+                name="command-append"
+                id="command-append-2252"
+              />
+            </div>
+          </div>
+          <div class="flex items-start my-2">
+            <input
+              class="mt-1"
+              type="radio"
+              name="command"
+              value="replace"
+              id="command-2253"
+            />
+            <div class="ml-2">
+              <label for="command-2253">Replace</label>
+              <ul class="list-disc ml-4">
+                <li>
+                  <label for="command-replace-pattern-2255"
+                    >Pattern (regex):</label
+                  >
+                  <input
+                    class="border pl-1"
+                    type="text"
+                    name="command-replace-pattern"
+                    id="command-replace-pattern-2255"
+                  />
+                </li>
+                <li>
+                  <label for="command-replace-replacement-2256"
+                    >Replacement:</label
+                  >
+                  <input
+                    class="border pl-1"
+                    type="text"
+                    name="command-replace-replacement"
+                    id="command-replace-replacement-2256"
+                  />
+                </li>
+                <li>
+                  <label for="command-replace-flags-2257">Flags:</label>
+                  <input
+                    class="border pl-1"
+                    type="text"
+                    name="command-replace-flags"
+                    id="command-replace-flags-2257"
+                  />
+                </li>
+              </ul>
+            </div>
+          </div>
+        </fieldset>
+      </form>
+      <div>
+        <h2 class="mt-4 text-lg font-bold">Result</h2>
+        <pre id="result-0949"></pre>
+      </div>
+    </div>
   </body>
 </html>
